@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> -->
+
+<!--    
+    <p id="slowLoris">
+        Slow lorises are a group of several species of strepsirrhine primates which make up the genus Nycticebus.
+        <a href="art" onClick="expandLoris();"><em>Click for more.</em></a>
+        </p>
+         -->
+
+<!--          
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Rich Text Editor</title>
+  <style>
+    .editor {
+      border: 1px solid #ccc;
+      padding: 5px;
+      min-height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="editor" contenteditable="true"></div>
+
+  <script>
+    function formatText(command, value) {
+      document.execCommand(command, false, value);
+    }
+
+    var buttons = [
+      { command: 'bold', text: 'B' },
+      { command: 'italic', text: 'I' },
+      { command: 'underline', text: 'U' },
+      { command: 'justifyLeft', text: '\u2190' },
+      { command: 'justifyCenter', text: '\u21C6' },
+      { command: 'justifyRight', text: '\u2192' },
+      { command: 'insertUnorderedList', text: '\u25CF' },
+      { command: 'insertOrderedList', text: '\u25CF' }
+    ];
+
+    var editor = document.querySelector('.editor');
+
+    buttons.forEach(function(button) {
+      var buttonElement = document.createElement('button');
+      buttonElement.textContent = button.text;
+      buttonElement.addEventListener('click', function() {
+        formatText(button.command);
+      });
+      editor.parentNode.insertBefore(buttonElement, editor);
+    });
+  </script>
+</body>
+</html>
